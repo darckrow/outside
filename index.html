@@ -208,7 +208,7 @@
                 proporcionando mais privacidade e conforto aos moradores. Um serviço de alta qualidade!"</p>
         </div>
     </div>
-    
+
     <div id="formulario">
         <div id="contatos">
 
@@ -233,21 +233,22 @@
 
         </div>
 
-        <form name="contact" method="POST" netlify>
-            <h3>Nome:</h3>
-            <input type="text" name="nome">
-
-            <h3>Telefone:</h3>
-            <input type="text" name="telefone">
-
-            <h3>E-mail:</h3>
-            <input type="text" name="email">
-
-            <h3>Mensagem:</h3>
-            <Textarea placeholder="deixe aqui sua mensagem"></Textarea>
-
-            <br>
-            <input type="submit" value="Enviar">
+        <form name="contact" method="POST" data-netlify="true">
+            <p>
+                <label><input type="text" name="name" placeholder="Seu Nome"/></label>
+            </p>
+            <p>
+                <label><input type="email" name="email" placeholder="Seu Email"/></label>
+            </p>
+            <p>
+                <label><input type="tel" name="phone" placeholder="Seu telefone"/></label>
+            </p>
+            <p>
+                <label><textarea name="message" placeholder="Deixe sua mensagem"></textarea></label>
+            </p>
+            <p>
+                <button type="submit">Enviar</button>
+            </p>
         </form>
 
     </div>
