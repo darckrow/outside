@@ -1,15 +1,5 @@
 :root {
     --fonte: 'Ysabeau SC', sans-serif;
-    --cor1:#BAA360;
-    --cor2:#E1CE85;
-    --cor3:#C9AE53;
-    --cor4:#997D3A;
-    --cor5:#273244;
-    --cor6:#1C2331;
-    --cor7:#4D422D; 
-    --cor8:#7A6C51;
-    --cor9:#665838;
-    --cor10:#4D422D;
 }
 
 * {
@@ -70,16 +60,19 @@ header {
     grid-auto-flow: column;
     justify-content: space-between;
     font-family: var(--fonte);
-    color: var(--cor5);
-    background-color: var(--cor6);
+    background-color: #708396;
     padding-bottom: 5px;
     align-items: center;
 }
 
 header a {
     text-decoration: none;
-    color: #0C0F19;
+    color: white;
     padding: 10px;
+}
+
+header a:hover {
+    color: #000000;
 }
 
 #titulo::after {
@@ -101,51 +94,45 @@ header a {
     }
 
 }
+
 /* banner 1 */
 #banner-principal {
     height: 260px;
     background-image: url(assets/fundo.svg);
-    padding: 100px;
+    padding: 50px;
     font-family: var(--fonte);
     font-size: 23px;
-    border-radius: 0px 0px 15px 10px;
     text-align: center;
-    color: var(--cor1);
     text-shadow: 10px 10px 80px rgba(0, 0, 0, 0.5);
+
 }
 
+/* carrosel de imagens */
 #carrosel-imagens {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding: 70px 70px 20px 20px;
+    font-family: var(--fonte);
     max-width: 1000px;
     margin: 0 auto;
-}
-
-#carrosel-imagens {
-    display: flex;
-    flex-direction: row;
-    background-color: var(--cor6);
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 65px 65px 15px 15px;
-    font-family: var(--fonte);
+    background-color: #708396;
+    height: 100%;
 }
 
 .banner {
     text-align: center;
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
+    flex-direction: column;
 
 }
 
 .banner img {
     width: 500px;
     height: auto;
-    border-radius: 20px;
+    border-radius: 30%;
     padding: 0px;
 }
 
@@ -157,95 +144,117 @@ header a {
 .banner p {
     margin: 5px 0;
 }
+
 /* serviços */
 #titulo-servicos {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-size: 30px;
     font-family: var(--fonte);
     color: #1C314A;
-    background-color: var(--cor5);
-    width: 500px;
+    background-color: #708396;
+    width: 100%;
     margin: 0 auto;
-    border-radius: 10px 10px 0px 0px;
+    margin-top: 5px;
 }
 
-#cards-serviços {
+#cards-servicos {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50px;
+    background-color: #708396;
+    display: flex;
     align-items: center;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: var(--cor5);
-    padding: 50px 70px 10px 100px;
 
 }
 
-.card {
-    width: 200px;
+.flip-card {
+    background-color: transparent;
+    width: 300px;
     height: 200px;
-    perspective: 1000px;
-    margin: 20px;
-}
-
-.card:hover .card-inner {
-    transform: rotateY(180deg);
-}
-
-.card-inner {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.card-front,
-.card-back {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
     border-radius: 10px;
-}
-
-.card-front {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--cor6);
-    color: var(--cor3);
-}
-
-.card-back {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
+    perspective: 1000px;
+    padding: 100px;
+    height: 300px;
+    font-size: 50px;
     font-family: var(--fonte);
-    font-size: 12px;
-    color: var(--cor3);
+    align-items: center;
+    display: flex;
+    align-items: center;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    align-items: center;
+    display: flex;
+    align-items: center;
+}
+
+.flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
 }
 
-.card h3,
-.card p {
-    margin: 0;
-    padding: 10px;
-    text-align: center;
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+
 }
+
+/*  front  */
+.flip-card-front {
+    background-color: #8b9bac;
+    color: #1C314A;
+    border-radius: 10px;
+    padding: 30px;
+    padding-bottom: 50px;
+    display: flex;
+    align-items: center;
+
+}
+
+/* back */
+.flip-card-back {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    transform: rotateY(180deg);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 30px;
+    padding-bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+
 /* clientes */
-#clientes h1{
+#clientes h1 {
     font-family: var(--fonte);
-padding-bottom: 10px;
+    padding-bottom: 10px;
 }
+
 #clientes {
     padding-top: 30px;
+    padding-bottom: 30px;
     text-align: center;
     background-image: url(assets/bannerClientes.svg);
     background-color: rgba(0, 0, 0, 0.5);
     background-size: cover;
+
 }
 
 .depoimentos {
@@ -257,8 +266,8 @@ padding-bottom: 10px;
     border-radius: 5px;
     font-family: var(--fonte);
     font-size: 5px;
-    background-color:var(--cor6);
-    
+    background-color: #70839694;
+
 }
 
 .depoimentos img {
@@ -273,15 +282,302 @@ padding-bottom: 10px;
     margin-bottom: 5px;
 }
 
+#clientes h1 {
+    font-size: 50px;
+}
+
 .depoimentos p {
     font-size: 14px;
     font-weight: bold;
-  font-style: italic;
+    font-style: italic;
 }
+
 /* formulario */
-#formulario{
+#formulario {
     display: flex;
     justify-content: space-around;
     font-family: var(--fonte);
-    background-color: var(--cor5);
+    background-color: #708396;
+    padding-top: 30px;
+}
+
+#contatos {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    font-size: 15px;
+    mix-blend-mode: color-burn;
+}
+
+input {
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+}
+
+form p {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+textarea {
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    resize: vertical;
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #1c314a1c;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    background-color: #1C314A;
+    color: white;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #919191;
+    font-family: var(--fonte);
+}
+
+.rodape {
+
+    padding: 30px;
+
+}
+
+@media only screen and (max-width: 767px) {
+
+    /* Banner principal */
+    #banner-principal {
+        height: 150px;
+        font-size: 18px;
+        padding: 20px;
+    }
+
+    /* Carrossel de imagens */
+    #carrosel-imagens {
+        padding: 20px;
+    }
+
+    .banner img {
+        width: 80%;
+    }
+
+    .banner p {
+        font-size: 16px;
+    }
+
+    /* Serviços */
+    .flip-card {
+        width: 100%;
+        padding: 20px;
+        font-size: 28px;
+    }
+
+    /* Ajuste de tamanho dos cards para telas de celular */
+    #cards-servicos {
+        justify-content: flex-start;
+    }
+
+    /* Clientes */
+    #clientes h1 {
+        font-size: 36px;
+    }
+
+    .depoimentos {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .depoimentos h3 {
+        font-size: 16px;
+    }
+
+    .depoimentos p {
+        font-size: 12px;
+    }
+
+    /* Formulário */
+    #formulario {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #contatos {
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    input,
+    textarea {
+        width: 90%;
+    }
+
+    button {
+        font-size: 16px;
+        width: 120px;
+    }
+}
+
+/* Media queries para tablets */
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+
+    /* Banner principal */
+    #banner-principal {
+        height: 200px;
+        font-size: 20px;
+        padding: 30px;
+    }
+
+    /* Carrossel de imagens */
+    #carrosel-imagens {
+        padding: 30px;
+    }
+
+    .banner img {
+        width: 70%;
+    }
+
+    .banner p {
+        font-size: 18px;
+    }
+
+    /* Serviços */
+    .flip-card {
+        width: 48%;
+        padding: 30px;
+        font-size: 36px;
+    }
+
+    /* Clientes */
+    #clientes h1 {
+        font-size: 42px;
+    }
+
+    .depoimentos {
+        width: 40%;
+        font-size: 18px;
+    }
+
+    .depoimentos h3 {
+        font-size: 20px;
+    }
+
+    .depoimentos p {
+        font-size: 14px;
+    }
+
+    /* Formulário */
+    #formulario {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #contatos {
+        padding: 30px;
+        font-size: 16px;
+    }
+
+    input,
+    textarea {
+        width: 300px;
+    }
+
+    button {
+        font-size: 18px;
+        width: 150px;
+    }
+}
+
+/* Media queries para desktops */
+
+@media only screen and (min-width: 1024px) {
+
+    /* Banner principal */
+    #banner-principal {
+        height: 260px;
+        font-size: 23px;
+        padding: 50px;
+    }
+
+    /* Carrossel de imagens */
+    #carrosel-imagens {
+        padding: 70px;
+    }
+
+    .banner img {
+        width: 500px;
+    }
+
+    .banner p {
+        font-size: 20px;
+    }
+
+    /* Serviços */
+    .flip-card {
+        width: 300px;
+        padding: 100px;
+        font-size: 50px;
+    }
+
+    /* Clientes */
+    #clientes h1 {
+        font-size: 50px;
+    }
+
+    .depoimentos {
+        width: 250px;
+        font-size: 20px;
+    }
+
+    .depoimentos h3 {
+        font-size: 20px;
+    }
+
+    .depoimentos p {
+        font-size: 14px;
+    }
+
+    /* Formulário */
+    #formulario {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #contatos {
+        padding: 50px;
+        font-size: 15px;
+    }
+
+    input,
+    textarea {
+        width: 200px;
+    }
+
+    button {
+        font-size: 20px;
+        width: 100px;
+    }
 }
